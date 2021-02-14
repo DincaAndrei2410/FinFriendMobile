@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinFriend.Views.RealEstatePage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:FinFriend.ViewModels"  
+             xmlns:model="clr-namespace:FinFriend.Models"  
+             x:Name="BrowseItemsPage"
+             Padding="16, 32, 16, 0">
+
+    <Label Text="Real Estate Assistant" FontFamily="MontserratBold" FontSize="28" TextColor="{StaticResource Secondary}"/>
+   
+</ContentPage>
