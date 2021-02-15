@@ -7,7 +7,8 @@
             <Color x:Key="Primary">#383e56</Color>
             <Color x:Key="Secondary">#223679</Color>
             <Color x:Key="Tertiary">#c5d7bd</Color>
-            <Color x:Key="Accent">#fb743e</Color>
+            <Color x:Key="Orange">#fb743e</Color>
+            <Color x:Key="GreyBackground">#F8F9F9</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">

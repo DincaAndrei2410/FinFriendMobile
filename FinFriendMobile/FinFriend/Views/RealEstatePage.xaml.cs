@@ -15,13 +15,13 @@ namespace FinFriend.Views
 {
     public partial class RealEstatePage : ContentPage
     {
-        ItemsViewModel _viewModel;
+        RealEstateViewModel _viewModel;
 
         public RealEstatePage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ItemsViewModel();
+            BindingContext = _viewModel = new RealEstateViewModel();
         }
 
         protected override void OnAppearing()
