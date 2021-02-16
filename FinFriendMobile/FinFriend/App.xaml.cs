@@ -14,6 +14,7 @@ namespace FinFriend
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<NeighborhoodDataStore>();
             MainPage = new AppShell();
         }
 

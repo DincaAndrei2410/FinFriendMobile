@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="FinFriend.Views.RealEstatePage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:FinFriend.ViewModels"  
@@ -8,84 +9,159 @@
              x:Name="BrowseItemsPage"
              Padding="16, 32, 16, 0"
              BackgroundColor="{StaticResource GreyBackground}">
-    <StackLayout Spacing="16" Orientation="Vertical">
+    <StackLayout Spacing="8" Orientation="Vertical">
         <Label Text="Asistent Piata Imobiliara" FontFamily="MontserratBold" FontSize="28" TextColor="{StaticResource Secondary}"/>
-        <ScrollView>
-            <StackLayout Orientation="Vertical" Padding="0, 32, 0, 0" Spacing="16">
-                <Frame x:Name="PriceComponent" CornerRadius="8" BorderColor="White">
-                    <StackLayout Spacing="8">
-                        <Label
-                            Text="Selectati pretul dorit din interval:"
-                            FontFamily="MontserratBold"
-                            FontSize="18"
-                            TextColor="{StaticResource Secondary}"/>
-                        <StackLayout Spacing="2">
-                            <Slider
-                                Maximum="{Binding PriceMaxValue}" Minimum="{Binding PriceMinValue}"
-                                MinimumTrackColor="{StaticResource Secondary}"
-                                MaximumTrackColor="LightGray"
-                                Value="{Binding SelectedPrice, Mode=TwoWay}"
-                                MinimumHeightRequest="8"/>
-                            <StackLayout Orientation="Horizontal">
-                                <Label
-                                    Text="{Binding PriceMinValue, StringFormat='{0:N0}'}"
-                                    FontFamily="MontserratLight"
-                                    FontSize="10"
-                                    TextColor="DarkSlateGray"
-                                    HorizontalOptions="StartAndExpand"/>
-                                <Label
-                                    Text="{Binding PriceMaxValue, StringFormat='{0:N0}'}"
-                                    FontFamily="MontserratLight"
-                                    FontSize="10"
-                                    TextColor="DarkSlateGray"
-                                    HorizontalOptions="End"/>
-                            </StackLayout>
-                        </StackLayout>
-                        <Label
-                            FontFamily="MontserratRegular"
-                            FontSize="16"
-                            TextColor="DarkSlateGray"
-                            Text="{Binding SelectedPrice, StringFormat='Pret: {0:N0}'}"
-                            HorizontalOptions="Center"/>
-                    </StackLayout>
-                </Frame>
-                <Frame x:Name="AdvanceComponent" CornerRadius="8" BorderColor="White">
-                    <StackLayout Spacing="8">
-                        <Label
-                            Text="Selectati procentul avansului:"
-                            FontFamily="MontserratBold"
-                            FontSize="18"
-                            TextColor="{StaticResource Secondary}"/>
-                        <StackLayout Spacing="2">
-                            <Slider
-                                Maximum="{Binding AdvanceMaxValue, Mode=TwoWay}" Minimum="{Binding AdvanceMinValue, Mode=TwoWay}"
-                                MinimumTrackColor="{StaticResource Secondary}"
-                                MaximumTrackColor="LightGray"
-                                Value="{Binding SelectedPercentage, Mode=OneWayToSource}"
-                                MinimumHeightRequest="8"/>
-                            <StackLayout Orientation="Horizontal">
-                                <Label
-                                    Text="{Binding AdvanceMinPercentage, StringFormat='{0:N0}%'}"
-                                    FontFamily="MontserratLight"
-                                    FontSize="10"
-                                    TextColor="DarkSlateGray"
-                                    HorizontalOptions="StartAndExpand"/>
-                                <Label
-                                    Text="{Binding AdvanceMaxPercentage, StringFormat='{0:N0}%'}"
-                                    FontFamily="MontserratLight"
-                                    FontSize="10"
-                                    TextColor="DarkSlateGray"
-                                    HorizontalOptions="End"/>
-                            </StackLayout>
-                        </StackLayout>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout Orientation="Vertical" Padding="4, 16, 4, 32" Spacing="16" BackgroundColor="{StaticResource GreyBackground}">
+                <Picker
+                    Title="Selectati cartierul"
+                    ItemsSource="{Binding Neighborhoods}"
+                    ItemDisplayBinding="{Binding Name}"/>
+                <Button
+                    Text="Cautati interval de preturi"
+                    />
+                <forms:AnimationView
+                    x:Name="animationView"
+                    Animation="loader.json"
+                    AnimationSource="AssetOrBundle"
+                    AutoPlay="True"
+                    RepeatMode="Infinite"
+                    HeightRequest="200"
+                    WidthRequest="200"
+                    IsVisible="True"/>
+                <StackLayout x:Name="SlidersContainer" IsVisible="True" Spacing="16">
+                    <Frame x:Name="PriceComponent"
+                           BackgroundColor="White"
+                           CornerRadius="16"
+                           HasShadow="True"
+                           BorderColor="{StaticResource Primary}">
+                        <StackLayout Spacing="8">
                             <Label
-                                FontFamily="MontserratRegular"
-                                FontSize="16"
+                                Text="Selectati pretul dorit din interval:"
+                                FontFamily="MontserratBold"
+                                FontSize="18"
+                                TextColor="{StaticResource Secondary}"/>
+                            <StackLayout Spacing="2">
+                                <Slider
+                                    Maximum="{Binding PriceMaxValue}" Minimum="{Binding PriceMinValue}"
+                                    MinimumTrackColor="{StaticResource Secondary}"
+                                    MaximumTrackColor="LightGray"
+                                    Value="{Binding SelectedPrice, Mode=TwoWay}"
+                                    MinimumHeightRequest="8"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                        Text="{Binding PriceMinValue, StringFormat='{0:N0} lei'}"
+                                        FontFamily="MontserratLight"
+                                        FontSize="10"
+                                        TextColor="DarkSlateGray"
+                                        HorizontalOptions="StartAndExpand"/>
+                                    <Label
+                                        Text="{Binding PriceMaxValue, StringFormat='{0:N0} lei'}"
+                                        FontFamily="MontserratLight"
+                                        FontSize="10"
+                                        TextColor="DarkSlateGray"
+                                        HorizontalOptions="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <Label
+                                FontFamily="MontserratBold"
+                                FontSize="14"
                                 TextColor="DarkSlateGray"
-                                Text="{Binding SelectedPercentage, StringFormat='Avans: {0:N0}'}"
+                                Text="{Binding SelectedPrice, StringFormat='Pret: {0:N0} LEI'}"
                                 HorizontalOptions="Center"/>
-                    </StackLayout>
-                </Frame>
+                        </StackLayout>
+                    </Frame>
+                    <Frame x:Name="AdvanceComponent"
+                           BackgroundColor="White"
+                           CornerRadius="16"
+                            HasShadow="True"
+                           BorderColor="{StaticResource Primary}">
+                        <StackLayout Spacing="8">
+                            <Label
+                                Text="Selectati procentul avansului:"
+                                FontFamily="MontserratBold"
+                                FontSize="18"
+                                TextColor="{StaticResource Secondary}"/>
+                            <StackLayout Spacing="2">
+                                <Slider
+                                    Maximum="{Binding AdvanceMaxPercentage}" Minimum="{Binding AdvanceMinPercentage}"
+                                    MinimumTrackColor="{StaticResource Secondary}"
+                                    MaximumTrackColor="LightGray"
+                                    Value="{Binding SelectedPercentage, Mode=TwoWay}"
+                                    MinimumHeightRequest="8"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                        Text="{Binding AdvanceMinPercentage, StringFormat='{0:N0}%'}"
+                                        FontFamily="MontserratLight"
+                                        FontSize="10"
+                                        TextColor="DarkSlateGray"
+                                        HorizontalOptions="StartAndExpand"/>
+                                    <Label
+                                        Text="{Binding AdvanceMaxPercentage, StringFormat='{0:N0}%'}"
+                                        FontFamily="MontserratLight"
+                                        FontSize="10"
+                                        TextColor="DarkSlateGray"
+                                        HorizontalOptions="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="8" HorizontalOptions="Center">
+                                <Label
+                                    FontFamily="MontserratBold"
+                                    FontSize="14"
+                                    TextColor="DarkSlateGray"
+                                    Text="{Binding SelectedPercentage, StringFormat='Procent: {0:N0}%'}"
+                                    HorizontalOptions="Center"/>
+                                 <Label
+                                    FontFamily="MontserratBold"
+                                    FontSize="14"
+                                    TextColor="DarkSlateGray"
+                                    Text="{Binding AdvanceValue, StringFormat='Valoare avans: {0:N0} LEI'}"
+                                    HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame x:Name="YearComponent"
+                           BackgroundColor="White"
+                           CornerRadius="16"
+                            HasShadow="True"
+                           BorderColor="{StaticResource Primary}">
+                        <StackLayout Spacing="8">
+                            <Label
+                                Text="Selectati perioada creditului:"
+                                FontFamily="MontserratBold"
+                                FontSize="18"
+                                TextColor="{StaticResource Secondary}"/>
+                            <StackLayout Spacing="2">
+                                <Slider
+                                    Maximum="{Binding YearMax}" Minimum="{Binding YearMin}"
+                                    MinimumTrackColor="{StaticResource Secondary}"
+                                    MaximumTrackColor="LightGray"
+                                    Value="{Binding SelectedYear, Mode=TwoWay}"
+                                    MinimumHeightRequest="8"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                        Text="{Binding YearMin, StringFormat='{0:N0} ani'}"
+                                        FontFamily="MontserratLight"
+                                        FontSize="10"
+                                        TextColor="DarkSlateGray"
+                                        HorizontalOptions="StartAndExpand"/>
+                                    <Label
+                                        Text="{Binding YearMax, StringFormat='{0:N0} ani'}"
+                                        FontFamily="MontserratLight"
+                                        FontSize="10"
+                                        TextColor="DarkSlateGray"
+                                        HorizontalOptions="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                              <Label
+                                    FontFamily="MontserratBold"
+                                    FontSize="14"
+                                    TextColor="DarkSlateGray"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding SelectedYear, StringFormat='Perioada credit: {0:N0} ani'}"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </StackLayout>

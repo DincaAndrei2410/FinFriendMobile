@@ -7,18 +7,26 @@ using Xamarin.Forms;
 
 using FinFriend.Models;
 using FinFriend.Services;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace FinFriend.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        private static readonly object lockObject = new object();
 
         bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            set
+            {
+                lock (lockObject)
+                {
+                    SetProperty(ref isBusy, value);
+                }
+            }
         }
 
         string title = string.Empty;
@@ -52,5 +60,17 @@ namespace FinFriend.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        protected async Task FireAndForgetSafeAsync(Task task)
+        {
+            try
+            {
+                await task;
+            }
+            catch(Exception ex)
+            {
+                Debug.Write(ex);
+            }
+        }
     }
 }
