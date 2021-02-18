@@ -61,7 +61,7 @@ namespace FinFriend.ViewModels
         }
         #endregion
 
-        protected async Task FireAndForgetSafeAsync(Task task)
+        protected async void FireAndForgetSafeAsync(Task task)
         {
             try
             {

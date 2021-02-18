@@ -20,14 +20,19 @@ namespace FinFriend.Views
         public RealEstatePage()
         {
             InitializeComponent();
-
             BindingContext = _viewModel = new RealEstateViewModel();
+            Shell.SetNavBarIsVisible(this, false);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             //_viewModel.OnAppearing();
+        }
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new RealEstateCreditsPage());
         }
     }
 }

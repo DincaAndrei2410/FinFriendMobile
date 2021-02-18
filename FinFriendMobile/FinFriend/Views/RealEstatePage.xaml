@@ -19,7 +19,7 @@
                     ItemDisplayBinding="{Binding Name}"/>
                 <Button
                     Text="Cautati interval de preturi"
-                    />
+                    Clicked="Button_Clicked"/>
                 <forms:AnimationView
                     x:Name="animationView"
                     Animation="loader.json"

@@ -15,6 +15,8 @@ namespace FinFriend
 
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<NeighborhoodDataStore>();
+            DependencyService.Register<RealEstateCreditDataStore>();
+
             MainPage = new AppShell();
         }
 

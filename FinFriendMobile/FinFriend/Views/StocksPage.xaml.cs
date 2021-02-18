@@ -10,6 +10,7 @@ namespace FinFriend.Views
         public StocksPage()
         {
             InitializeComponent();
+            Shell.SetNavBarIsVisible(this, false);
         }
     }
 }

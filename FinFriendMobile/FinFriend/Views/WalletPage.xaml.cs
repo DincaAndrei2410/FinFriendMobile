@@ -15,6 +15,7 @@ namespace FinFriend.Views
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
+            Shell.SetNavBarIsVisible(this, false);
         }
     }
 }

@@ -122,6 +122,8 @@
     <ImageAsset Include="Resources\Assets.xcassets\icon_real_estate.imageset\Icon-Small-40%402x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\icon_stocks.imageset\Icon-Small-40%402x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\icon_wallet.imageset\Icon-Small-40%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\left_arrow.png.imageset\left_arrow.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\left_arrow.png.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
