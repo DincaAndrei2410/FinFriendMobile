@@ -18,7 +18,7 @@ namespace FinFriend.ViewModels
         private const double MinAdvancePercentage = 0.15;
         private const double MaxAdvancePercentage = 0.85;
 
-        public IDataStore<Neighborhood> _neighborhoodsService => DependencyService.Get<IDataStore<Neighborhood>>();
+        private IDataStore<Neighborhood> _neighborhoodsService => DependencyService.Get<IDataStore<Neighborhood>>();
 
         double _priceMinValue;
         public double PriceMinValue

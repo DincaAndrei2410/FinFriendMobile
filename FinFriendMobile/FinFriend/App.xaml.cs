@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FinFriend.Services;
 using FinFriend.Views;
+using API;
 
 namespace FinFriend
 {
@@ -16,6 +17,7 @@ namespace FinFriend
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<NeighborhoodDataStore>();
             DependencyService.Register<RealEstateCreditDataStore>();
+            DependencyService.Register<StocksApiService>();
 
             MainPage = new AppShell();
         }
