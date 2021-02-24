@@ -24,7 +24,11 @@ namespace FinFriend.ViewModels
         public PlotModel HistoricalPricesModel
         {
             get => _historicalPricesModel;
-            set => SetProperty(ref _historicalPricesModel, value);
+            set
+            {
+                SetProperty(ref _historicalPricesModel, value);
+                HistoricalPricesModel.InvalidatePlot(false);
+            }
         }
 
         public CompaniesComparisonViewModel()
@@ -52,28 +56,43 @@ namespace FinFriend.ViewModels
             historicalPricesModel.Axes.Add(new LinearAxis()
             {
                 Position = AxisPosition.Left,
-                Minimum = _firstCompanyHistoricalData.Min(data => data.CumulativeReturn),
+                Minimum = 0,
                 Maximum = _firstCompanyHistoricalData.Max(data => data.CumulativeReturn),
                 TickStyle = TickStyle.Inside,
+                IsPanEnabled = false,
             });
 
             historicalPricesModel.Axes.Add(new DateTimeAxis()
             {
                 Position = AxisPosition.Bottom,
                 Minimum = _firstCompanyHistoricalData.Min(data => DateTimeAxis.ToDouble(data.Date)),
-                Maximum = _firstCompanyHistoricalData.Max(data => DateTimeAxis.ToDouble(data.Date)),
+                Maximum = _firstCompanyHistoricalData.Max(data => DateTimeAxis.ToDouble(data.Date)) + 1,
                 TickStyle = TickStyle.Inside,
+                IsPanEnabled = false,
             });
 
-            historicalPricesModel.Series.Add(CreateLineSeries());
+            historicalPricesModel.Series.Add(CreateLineSeries(_firstCompanyHistoricalData));
+            historicalPricesModel.Series.Add(CreateLineSeries(_secondCompanykHistoricalData));
+
             HistoricalPricesModel = historicalPricesModel;
+
+            //var model = new PlotModel { Title = "DateTimeAxis", PlotMargins = new OxyThickness(40, double.NaN, 40, double.NaN) };
+            //model.Axes.Add(new DateTimeAxis
+            //{
+            //    Position = AxisPosition.Bottom,
+            //    Minimum = DateTimeAxis.ToDouble(new DateTime(2015, 1, 1)),
+            //    Maximum = DateTimeAxis.ToDouble(new DateTime(2016, 1, 1)),
+            //    Title = "DateTimeAxis"
+            //});
+            //model.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
+            //HistoricalPricesModel = model;
         }
 
-        private LineSeries CreateLineSeries()
+        private LineSeries CreateLineSeries(IEnumerable<StockHistoricalData> stockHistoricalDatas)
         {
             var ls = new LineSeries();
 
-            foreach (var data in _firstCompanyHistoricalData)
+            foreach (var data in stockHistoricalDatas)
             {
                 ls.Points.Add(new DataPoint(DateTimeAxis.ToDouble(data.Date), data.CumulativeReturn));
             }

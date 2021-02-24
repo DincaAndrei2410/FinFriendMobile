@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinFriend.Views.StocksPage"
              xmlns:vm="clr-namespace:FinFriend.ViewModels"
-             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms">
+             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+             Padding="8, 16, 8, 0">
     
     <ContentPage.BindingContext>
         <vm:CompaniesComparisonViewModel />
@@ -15,10 +16,25 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout BackgroundColor="Azure">
-        <oxy:PlotView Model="{Binding HistoricalPricesModel}" VerticalOptions="Center" HorizontalOptions="Center" />
-    </StackLayout>
-
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" 
+                    Grid.ColumnSpan="2"
+                    Text="My Sample App" 
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+            <oxy:PlotView 
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Model="{Binding HistoricalPricesModel}"/>
+        </Grid>
+    </ScrollView>
     <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
