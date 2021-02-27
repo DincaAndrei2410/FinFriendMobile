@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:FinFriend.Converters"
              x:Class="FinFriend.App">
     <Application.Resources>
         <ResourceDictionary>
+            <custom:InverseBoolConverter x:Key="inverseBool"/>
             <Color x:Key="Primary">#383e56</Color>
             <Color x:Key="Secondary">#223679</Color>
             <Color x:Key="Tertiary">#c5d7bd</Color>

@@ -23,8 +23,8 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Stocks" Icon="icon_stocks.png" Route="AboutPage" ContentTemplate="{DataTemplate local:StocksPage}" />
+        <ShellContent Title="Piata de capital" Icon="icon_stocks.png" Route="AboutPage" ContentTemplate="{DataTemplate local:StocksPage}" />
         <!--<ShellContent Title="Imobiliare" Icon="icon_real_estate.png" ContentTemplate="{DataTemplate local:RealEstatePage}" />-->
-        <ShellContent Title="Buget" Icon="icon_wallet.png" ContentTemplate="{DataTemplate local:WalletPage}" />
+        <ShellContent Title="Afla mai multe" Icon="icon_learning.png" ContentTemplate="{DataTemplate local:LearnMorePage}" />
     </TabBar>
 </Shell>

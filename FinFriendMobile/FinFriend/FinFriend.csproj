@@ -18,12 +18,10 @@
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\RealEstatePage.xaml.cs">
       <DependentUpon>RealEstatePage.xaml</DependentUpon>
     </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\WalletPage.xaml.cs">
-      <DependentUpon>WalletPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Fonts\Montserrat-Bold.ttf" />

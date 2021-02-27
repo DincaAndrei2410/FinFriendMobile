@@ -125,6 +125,11 @@
     <ImageAsset Include="Resources\Assets.xcassets\icon_wallet.imageset\Icon-Small-40%402x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\left_arrow.png.imageset\left_arrow.png" />
     <ImageAsset Include="Resources\Assets.xcassets\left_arrow.png.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\icon_learning.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\icon_learning.imageset\40.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\icon_learning.imageset\icon_learning.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\icon_learning.imageset\Icon-Small-40.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\icon_learning.imageset\Icon-Small-40%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

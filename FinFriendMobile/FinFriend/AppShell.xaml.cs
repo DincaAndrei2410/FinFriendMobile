@@ -14,7 +14,7 @@ namespace FinFriend
             SetNavBarIsVisible(this, false);
             Routing.RegisterRoute(nameof(RealEstatePage), typeof(RealEstatePage));
             Routing.RegisterRoute(nameof(StocksPage), typeof(StocksPage));
-            Routing.RegisterRoute(nameof(WalletPage), typeof(WalletPage));
+            Routing.RegisterRoute(nameof(LearnMorePage), typeof(LearnMorePage));
         }
 
     }

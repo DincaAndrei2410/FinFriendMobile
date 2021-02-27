@@ -7,10 +7,10 @@
              Padding="16, 60, 16, 0"
              BackgroundColor="{StaticResource GreyBackground}">
 
-   <StackLayout Orientation="Vertical" Spacing="16">
-            <Label Text="Asistent Piata Capital" FontFamily="MontserratBold"  FontSize="28" TextColor="{StaticResource Secondary}"/>
-            <Label Text="Selectati 2 companii pe care doriti sa le comparati" FontFamily="MontserratBold" FontSize="18" TextColor="{StaticResource Secondary}"/>
-            <Button Text="Incepeti comparatia" Clicked="Button_Clicked" IsEnabled="{Binding AreEnoughCompaniesSelected}"/>
+   <StackLayout Orientation="Vertical" Spacing="32">
+            <Label Text="Asistent Piata Capital" FontFamily="MontserratBold"  FontSize="28" TextColor="{StaticResource Primary}"/>
+            <Label Text="Selectati 2 companii pe care doriti sa le comparati" FontFamily="MontserratBold" FontSize="18" TextColor="{StaticResource Primary}"/>
+            <Button Text="Generati raport" Clicked="Button_Clicked" IsEnabled="{Binding AreEnoughCompaniesSelected}"/>
             <ListView x:Name="CompaniesListView" BackgroundColor="{StaticResource GreyBackground}" RowHeight="50" ItemsSource="{Binding Companies}" CachingStrategy="RecycleElement" SeparatorVisibility="None" ItemTapped="CompaniesListView_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -23,8 +23,8 @@
                             BorderColor="{StaticResource Primary}">
                         <StackLayout Orientation="Horizontal" Padding="10, 0, 10, 0">
                             <Image Source="{Binding Company.CompanyLogo}" Aspect="AspectFit" WidthRequest="25" HeightRequest="25" VerticalOptions="Center"/>
-                            <Label Text="{Binding Company.CompanyName}" VerticalOptions="Center" FontFamily="MontserratBold" FontSize="16" Margin="5, 0, 0, 0" />
-                            <Label Text="{Binding Company.CompanySymbol, StringFormat=' ({0:N0})'}" VerticalOptions="Center" FontFamily="MontserratBold" FontSize="12" />
+                            <Label Text="{Binding Company.CompanyName}" VerticalOptions="Center" FontFamily="MontserratBold" FontSize="16" Margin="5, 0, 0, 0"  TextColor="{StaticResource Secondary}"/>
+                            <Label Text="{Binding Company.CompanySymbol, StringFormat=' ({0:N0})'}" VerticalOptions="Center" FontFamily="MontserratBold" FontSize="12" TextColor="{StaticResource Secondary}" />
                             <CheckBox IsChecked="True" IsVisible="{Binding IsSelected}" HorizontalOptions="EndAndExpand" Color="{StaticResource Secondary}"/>
                         </StackLayout>
                     </Frame>

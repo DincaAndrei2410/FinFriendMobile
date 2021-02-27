@@ -22,6 +22,10 @@ namespace FinFriend.Services
                 new Company() { CompanyName = "Tesla, Inc.", CompanySymbol="TSLA", CompanyLogo="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png"},
                 new Company() { CompanyName = "Facebook", CompanySymbol="FB", CompanyLogo="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo.png"},
                 new Company() { CompanyName = "Netflix, Inc.", CompanySymbol="NFLX", CompanyLogo="https://i.pinimg.com/originals/f6/97/4e/f6974e017d3f6196c4cbe284ee3eaf4e.png"},
+                new Company() { CompanyName = "Microsoft", CompanySymbol="MSFT", CompanyLogo="https://i.pinimg.com/originals/ce/af/83/ceaf8384322af790486cff176a0a2f24.png"},
+                new Company() { CompanyName = "Visa", CompanySymbol="V", CompanyLogo="https://lavca.org/wp-content/uploads/2019/07/VISA-logo-square.png"},
+                new Company() { CompanyName = "MasterCard", CompanySymbol="MA", CompanyLogo="https://cdn.vox-cdn.com/thumbor/UKSLdttYoIK2bv1gd231rqL4eiQ=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13674554/Mastercard_logo.jpg"},
+                new Company() { CompanyName = "NVIDIA.", CompanySymbol="NVDA", CompanyLogo="https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"},
             };
 
             return Task.FromResult(companies);
