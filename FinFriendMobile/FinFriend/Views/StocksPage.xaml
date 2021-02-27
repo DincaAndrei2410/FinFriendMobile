@@ -2,16 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinFriend.Views.StocksPage"
-             xmlns:vm="clr-namespace:FinFriend.ViewModels"
-             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
-             Padding="16, 60, 16, 0"
+             Padding="16, 60, 16, 32"
              BackgroundColor="{StaticResource GreyBackground}">
 
    <StackLayout Orientation="Vertical" Spacing="32">
             <Label Text="Asistent Piata Capital" FontFamily="MontserratBold"  FontSize="28" TextColor="{StaticResource Primary}"/>
             <Label Text="Selectati 2 companii pe care doriti sa le comparati" FontFamily="MontserratBold" FontSize="18" TextColor="{StaticResource Primary}"/>
             <Button Text="Generati raport" Clicked="Button_Clicked" IsEnabled="{Binding AreEnoughCompaniesSelected}"/>
-            <ListView x:Name="CompaniesListView" BackgroundColor="{StaticResource GreyBackground}" RowHeight="50" ItemsSource="{Binding Companies}" CachingStrategy="RecycleElement" SeparatorVisibility="None" ItemTapped="CompaniesListView_ItemTapped">
+            <ListView x:Name="CompaniesListView" VerticalScrollBarVisibility="Never" BackgroundColor="{StaticResource GreyBackground}" RowHeight="50" ItemsSource="{Binding Companies}" CachingStrategy="RecycleElement" SeparatorVisibility="None" ItemTapped="CompaniesListView_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                 <ViewCell Height="50">

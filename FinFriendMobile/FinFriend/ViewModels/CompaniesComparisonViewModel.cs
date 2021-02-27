@@ -163,7 +163,8 @@ namespace FinFriend.ViewModels
                     _companiesSymbols[0],
                     _companiesSymbols[1],
                 },
-                IsZoomEnabled = false
+                IsZoomEnabled = false,
+                IsPanEnabled = false,
             });
 
             foreach (var axis in perModel.Axes)

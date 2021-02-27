@@ -7,7 +7,6 @@
     x:Class="FinFriend.Views.StocksComparisonPage"
     Title="Raport">
 
-    <StackLayout>
         <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" Padding="0,16,0,0" >
             <StackLayout>
                 <Grid RowSpacing="32" IsVisible="{Binding IsBusy, Converter = {StaticResource inverseBool}}">
@@ -25,31 +24,26 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Text="Preturi inchidere - Randamente zilnice" FontFamily="MontserratBold" FontSize="16" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
                     <oxy:PlotView
-                        HeightRequest="250"
                         Margin="0,0,16,0"
                         Grid.Row="1"
                         Model="{Binding DailyRatesModel}"/>
                     <Label Grid.Row="2" Text="Preturi inchidere - Randamente cumulate" FontFamily="MontserratBold" FontSize="16" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
                     <oxy:PlotView
-                        HeightRequest="250"
                         Margin="0,0,16,0"
                         Grid.Row="3"
                         Model="{Binding CumulativeRatesModel}"/>
                     <Label Grid.Row="4" Text="Indicatorul PER" FontFamily="MontserratBold" FontSize="16" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
                     <oxy:PlotView
-                        HeightRequest="250"
                         Margin="0,0,16,0"
                         Grid.Row="5"
                         Model="{Binding PerModel}"/>
                     <Label Grid.Row="6" Text="Analiza de Sentiment - Tweet-uri" FontFamily="MontserratBold" FontSize="16" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
                     <oxy:PlotView
-                        HeightRequest="250"
                         Margin="0,0,16,0"
                         Grid.Row="7"
                         Model="{Binding FirstCompanySentimentModel}"/>
                     <Label Grid.Row="8" Text="" FontFamily="MontserratBold" FontSize="16" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
                     <oxy:PlotView
-                        HeightRequest="250"
                         Margin="0,0,16,0"
                         Grid.Row="9"
                         Model="{Binding SecondCompanySentimentModel}"/>
@@ -68,5 +62,4 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-     </StackLayout>
 </ContentPage>
