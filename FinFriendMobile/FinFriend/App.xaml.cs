@@ -18,6 +18,7 @@ namespace FinFriend
             DependencyService.Register<NeighborhoodDataStore>();
             DependencyService.Register<RealEstateCreditDataStore>();
             DependencyService.Register<StocksApiService>();
+            DependencyService.Register<CompaniesDataStore>();
 
             MainPage = new AppShell();
         }

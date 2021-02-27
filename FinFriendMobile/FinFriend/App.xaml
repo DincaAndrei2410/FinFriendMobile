@@ -9,19 +9,21 @@
             <Color x:Key="Tertiary">#c5d7bd</Color>
             <Color x:Key="Orange">#fb743e</Color>
             <Color x:Key="GreyBackground">#F8F9F9</Color>
+            <Color x:Key="DisabledButton">#BEBEBE</Color>
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="TextColor" Value="White" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value= "{StaticResource Secondary}" />
+                                    <Setter Property="BackgroundColor" Value= "{StaticResource DisabledButton}" />
+                                    <Setter Property="TextColor" Value="{StaticResource GreyBackground}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

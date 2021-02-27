@@ -24,7 +24,7 @@
 
     <TabBar>
         <ShellContent Title="Stocks" Icon="icon_stocks.png" Route="AboutPage" ContentTemplate="{DataTemplate local:StocksPage}" />
-        <ShellContent Title="Imobiliare" Icon="icon_real_estate.png" ContentTemplate="{DataTemplate local:RealEstatePage}" />
+        <!--<ShellContent Title="Imobiliare" Icon="icon_real_estate.png" ContentTemplate="{DataTemplate local:RealEstatePage}" />-->
         <ShellContent Title="Buget" Icon="icon_wallet.png" ContentTemplate="{DataTemplate local:WalletPage}" />
     </TabBar>
 </Shell>

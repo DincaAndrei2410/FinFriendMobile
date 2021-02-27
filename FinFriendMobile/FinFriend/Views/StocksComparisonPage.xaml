@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinFriend.Views.StocksComparisonPage"
+    xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+    Title="Raport companii">
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" 
+                    Text="Randamente cumulate" 
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+            <oxy:PlotView 
+                Grid.Row="1"
+                Model="{Binding HistoricalPricesModel}"/>
+            <Label Grid.Row="2" 
+                    Text="Randamente cumulate" 
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+            <oxy:PlotView 
+                Grid.Row="3"
+                Model="{Binding HistoricalPricesModel}"/>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

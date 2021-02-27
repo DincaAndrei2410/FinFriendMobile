@@ -8,6 +8,7 @@ using OxyPlot.Axes;
 using Xamarin.Forms;
 using System.Linq;
 using OxyPlot.Series;
+using Models.Models;
 
 namespace FinFriend.ViewModels
 {
@@ -15,7 +16,7 @@ namespace FinFriend.ViewModels
     {
         private IStocksApiService _stocksService => DependencyService.Get<IStocksApiService>();
 
-        private List<string> companiesSymbols;
+        private List<string> _companiesSymbols;
 
         public IEnumerable<StockHistoricalData> _firstCompanyHistoricalData;
         public IEnumerable<StockHistoricalData> _secondCompanykHistoricalData;
@@ -31,16 +32,22 @@ namespace FinFriend.ViewModels
             }
         }
 
-        public CompaniesComparisonViewModel()
+        public CompaniesComparisonViewModel(IEnumerable<Company> companies)
         {
-            companiesSymbols = new List<string> { "TSLA", "AAPL" };
+            _companiesSymbols = new List<string>();
+
+            foreach (var company in companies)
+            {
+                _companiesSymbols.Add(company.CompanySymbol);
+            }
+
             FireAndForgetSafeAsync(LoadHistoricalData());
         }
 
         private async Task LoadHistoricalData()
         {
-            _firstCompanyHistoricalData = await _stocksService.GetStockHistoricalData(companiesSymbols[0]);
-            _secondCompanykHistoricalData = await _stocksService.GetStockHistoricalData(companiesSymbols[1]);
+            _firstCompanyHistoricalData = await _stocksService.GetStockHistoricalData(_companiesSymbols[0]);
+            _secondCompanykHistoricalData = await _stocksService.GetStockHistoricalData(_companiesSymbols[1]);
 
             InitializeHistoricalPricesModel();
         }
@@ -98,6 +105,20 @@ namespace FinFriend.ViewModels
             }
 
             return ls;
+        }
+
+        private double GetMinimumValue()
+        {
+            var firstMin = _firstCompanyHistoricalData.Min(data => data.CumulativeReturn);
+            var secondMin = _secondCompanykHistoricalData.Min(data => data.CumulativeReturn);
+            return Math.Min(firstMin, secondMin);
+        }
+
+        private double GetMaximumValue()
+        {
+            var firstMax = _firstCompanyHistoricalData.Max(data => data.CumulativeReturn);
+            var secondMax = _secondCompanykHistoricalData.Max(data => data.CumulativeReturn);
+            return Math.Min(firstMax, secondMax);
         }
     }
 

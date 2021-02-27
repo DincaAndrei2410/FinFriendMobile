@@ -4,37 +4,36 @@
              x:Class="FinFriend.Views.StocksPage"
              xmlns:vm="clr-namespace:FinFriend.ViewModels"
              xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
-             Padding="8, 16, 8, 0">
-    
-    <ContentPage.BindingContext>
-        <vm:CompaniesComparisonViewModel />
-    </ContentPage.BindingContext>
-    
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+             Padding="16, 60, 16, 0"
+             BackgroundColor="{StaticResource GreyBackground}">
 
-    <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" 
-                    Grid.ColumnSpan="2"
-                    Text="My Sample App" 
-                    FontAttributes="Bold"
-                    FontSize="Large"
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center" />
-            <oxy:PlotView 
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                Model="{Binding HistoricalPricesModel}"/>
-        </Grid>
-    </ScrollView>
+   <StackLayout Orientation="Vertical" Spacing="16">
+            <Label Text="Asistent Piata Capital" FontFamily="MontserratBold"  FontSize="28" TextColor="{StaticResource Secondary}"/>
+            <Label Text="Selectati 2 companii pe care doriti sa le comparati" FontFamily="MontserratBold" FontSize="18" TextColor="{StaticResource Secondary}"/>
+            <Button Text="Incepeti comparatia" Clicked="Button_Clicked" IsEnabled="{Binding AreEnoughCompaniesSelected}"/>
+            <ListView x:Name="CompaniesListView" BackgroundColor="{StaticResource GreyBackground}" RowHeight="50" ItemsSource="{Binding Companies}" CachingStrategy="RecycleElement" SeparatorVisibility="None" ItemTapped="CompaniesListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                <ViewCell Height="50">
+                    <Frame x:Name="CellFrame"
+                            BackgroundColor = "White"
+                            Padding="2"
+                            Margin="0, 5, 0, 5"
+                            CornerRadius="16"
+                            BorderColor="{StaticResource Primary}">
+                        <StackLayout Orientation="Horizontal" Padding="10, 0, 10, 0">
+                            <Image Source="{Binding Company.CompanyLogo}" Aspect="AspectFit" WidthRequest="25" HeightRequest="25" VerticalOptions="Center"/>
+                            <Label Text="{Binding Company.CompanyName}" VerticalOptions="Center" FontFamily="MontserratBold" FontSize="16" Margin="5, 0, 0, 0" />
+                            <Label Text="{Binding Company.CompanySymbol, StringFormat=' ({0:N0})'}" VerticalOptions="Center" FontFamily="MontserratBold" FontSize="12" />
+                            <CheckBox IsChecked="True" IsVisible="{Binding IsSelected}" HorizontalOptions="EndAndExpand" Color="{StaticResource Secondary}"/>
+                        </StackLayout>
+                    </Frame>
+                </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
+    </StackLayout>
+
     <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
