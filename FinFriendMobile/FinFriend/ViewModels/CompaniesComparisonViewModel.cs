@@ -183,7 +183,13 @@ namespace FinFriend.ViewModels
             var historicalPricesModel = new PlotModel()
             {
                 PlotType = PlotType.XY,
+                LegendPosition = LegendPosition.RightBottom,
+                LegendMaxWidth = 100,
+                LegendFont = "MontserratBold",
+                LegendFontSize = 6,
+                LegendFontWeight = 1,
             };
+
 
             historicalPricesModel.Axes.Add(new LinearAxis()
             {
@@ -216,6 +222,10 @@ namespace FinFriend.ViewModels
             var historicalPricesModel = new PlotModel()
             {
                 PlotType = PlotType.XY,
+                LegendPosition = LegendPosition.LeftTop,
+                LegendFont = "MontserratBold",
+                LegendMaxWidth = 100,
+                LegendFontSize = 6,
             };
 
             historicalPricesModel.Axes.Add(new LinearAxis()
@@ -258,6 +268,7 @@ namespace FinFriend.ViewModels
         private LineSeries CreateLineSeries(IEnumerable<StockHistoricalData> stockHistoricalDatas, bool isCumulative)
         {
             var ls = new LineSeries();
+            ls.Title = stockHistoricalDatas.ToList()[0].Symbol;
 
             foreach (var data in stockHistoricalDatas)
             {
