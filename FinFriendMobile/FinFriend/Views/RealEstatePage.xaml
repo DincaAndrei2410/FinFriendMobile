@@ -113,7 +113,7 @@
                                     FontFamily="MontserratBold"
                                     FontSize="14"
                                     TextColor="DarkSlateGray"
-                                    Text="{Binding AdvanceValue, StringFormat='Valoare avans: {0:N0} LEI'}"
+                                    Text="{Binding AdvanceValue, StringFormat='Valoare: {0:N0} LEI'}"
                                     HorizontalOptions="Center"/>
                             </StackLayout>
                         </StackLayout>

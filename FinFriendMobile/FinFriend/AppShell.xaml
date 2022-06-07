@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:FinFriend.Views"
@@ -24,7 +24,7 @@
 
     <TabBar>
         <ShellContent Title="Piata de capital" Icon="icon_stocks.png" Route="AboutPage" ContentTemplate="{DataTemplate local:StocksPage}" />
-        <!--<ShellContent Title="Imobiliare" Icon="icon_real_estate.png" ContentTemplate="{DataTemplate local:RealEstatePage}" />-->
+        <ShellContent Title="Imobiliare" Icon="icon_real_estate.png" ContentTemplate="{DataTemplate local:RealEstatePage}" />
         <ShellContent Title="Afla mai multe" Icon="icon_learning.png" ContentTemplate="{DataTemplate local:LearnMorePage}" />
     </TabBar>
 </Shell>
