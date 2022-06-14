@@ -1,6 +1,6 @@
 ﻿namespace Models.Models
 {
-    public class Company
+    public class Company : EntityBase
     {
         public string CompanyName { get; set; }
         public string CompanyLogo { get; set; }

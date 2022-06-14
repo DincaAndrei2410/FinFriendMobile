@@ -22,7 +22,11 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar>
+    <ShellItem Route="login" >
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
+    </ShellItem>
+
+    <TabBar Route="main">
         <ShellContent Title="Piata de capital" Icon="icon_stocks.png" Route="AboutPage" ContentTemplate="{DataTemplate local:StocksPage}" />
         <ShellContent Title="Imobiliare" Icon="icon_real_estate.png" ContentTemplate="{DataTemplate local:RealEstatePage}" />
         <ShellContent Title="Afla mai multe" Icon="icon_learning.png" ContentTemplate="{DataTemplate local:LearnMorePage}" />

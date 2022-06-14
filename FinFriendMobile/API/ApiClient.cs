@@ -8,7 +8,7 @@ namespace API
     {
         public static ApiClient Instance = new ApiClient();
 
-        private const string ApiBase = "http://178.62.226.22:3005/";
+        public const string ApiBase = "http://192.168.1.130:3005/";
         private static readonly HttpClient _httpClient = new HttpClient();
 
         public async Task<T> GetAsync<T>(string endpointUrl)

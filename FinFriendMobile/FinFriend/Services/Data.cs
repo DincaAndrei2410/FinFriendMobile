@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FinFriend.Models;
 using Models.Models;
 
 namespace FinFriend.Services
 {
-    public class CompaniesDataStore : IDataStore<Company>
+    public class Data
     {
-        public CompaniesDataStore()
-        {
-        }
-
-        public Task<IEnumerable<Company>> GetItemsAsync(bool forceRefresh = false)
-        {
-            IEnumerable<Company> companies;
-            companies = new List<Company>()
+        public static IEnumerable<Company> Companies => new List<Company>()
             {
                 new Company() { CompanyName = "Amazon.com Inc.", CompanySymbol="AMZN", CompanyLogo="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG", IsSelected=true, },
                 new Company() { CompanyName = "Apple Inc.", CompanySymbol="AAPL", CompanyLogo="https://pngimg.com/uploads/apple_logo/apple_logo_PNG19674.png", IsSelected=true,},
@@ -28,7 +22,37 @@ namespace FinFriend.Services
                 new Company() { CompanyName = "NVIDIA.", CompanySymbol="NVDA", CompanyLogo="https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png"},
             };
 
-            return Task.FromResult(companies);
-        }
-    }
+        public static IEnumerable<Neighborhood> Neighborhoods => 
+            new List<Neighborhood>()
+            {
+                new Neighborhood()
+                {
+                    Id = 1,
+                    Name = "Militari"
+                },
+                new Neighborhood()
+                {
+                    Id = 2,
+                    Name = "Drumul Taberei"
+                },
+                new Neighborhood()
+                {
+                    Id = 3,
+                    Name = "Chitila"
+                },
+                new Neighborhood()
+                {
+                    Id = 4,
+                    Name = "Titan"
+                }
+            };
+
+        public static IEnumerable<RealEstateCredit> Credits =>
+        new List<RealEstateCredit>()
+                {
+                    new RealEstateCredit() { BankName = "ING Groep N.V", DobandaAnuala = "4 %", Logo = "https://upload.wikimedia.org/wikipedia/commons/4/4b/ING_logo.png", RataLunara = "1200 LEI", TotalPlata = "50,00 LEI", SimulatorURL = "https://ing.ro/persoane-fizice/credite/ipotecar"},
+                    new RealEstateCredit() { BankName = "Banca Comerciala Romana", DobandaAnuala = "4.5 %", Logo = "https://seeklogo.com/images/B/banca-comerciala-romana-bcr-logo-A86AEFB56F-seeklogo.com.png", RataLunara = "1200 LEI", TotalPlata = "50,00 LEI", SimulatorURL = "https://calculator-rate-credit.bcr.ro/"},
+                    new RealEstateCredit() { BankName = "Banca Transilvania", DobandaAnuala = "4.5 %", Logo = "https://www.bancatransilvania.ro/themes/bancatransilvania/assets/images/logos/BT_Logo_2_Color.png", RataLunara = "1200 LEI", TotalPlata = "50,00 LEI", SimulatorURL = "https://www.bancatransilvania.ro/credite/credite-de-nevoi/credit-de-nevoi-curente-cu-destinatie-imobiliara"},
+                };
+}
 }

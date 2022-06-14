@@ -6,6 +6,6 @@ namespace FinFriend.Services
 {
     public interface IDataStore<T>
     {
-        Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        Task<List<T>> GetItemsAsync();
     }
 }

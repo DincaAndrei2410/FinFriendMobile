@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="FinFriend.Views.RealEstatePage"
              Title="{Binding Title}" 
              x:Name="BrowseItemsPage"
@@ -12,21 +11,13 @@
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout Orientation="Vertical" Padding="4, 16, 4, 32" Spacing="16" BackgroundColor="{StaticResource GreyBackground}">
                 <Picker
+                    BackgroundColor="{StaticResource Primary}"
                     Title="Selectati cartierul"
                     ItemsSource="{Binding Neighborhoods}"
                     ItemDisplayBinding="{Binding Name}"/>
                 <Button
-                    Text="Cautati interval de preturi"
+                    Text="Cautati variante de credite"
                     Clicked="Button_Clicked"/>
-                <forms:AnimationView
-                    x:Name="animationView"
-                    Animation="loader.json"
-                    AnimationSource="AssetOrBundle"
-                    AutoPlay="True"
-                    RepeatMode="Infinite"
-                    HeightRequest="200"
-                    WidthRequest="200"
-                    IsVisible="True"/>
                 <StackLayout x:Name="SlidersContainer" IsVisible="True" Spacing="16">
                     <Frame x:Name="PriceComponent"
                            BackgroundColor="White"

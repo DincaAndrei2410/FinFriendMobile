@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using API;
 using Xamarin.Forms;
 
 namespace FinFriend.Views
@@ -10,7 +10,7 @@ namespace FinFriend.Views
         public LearnMorePage()
         {
             InitializeComponent();
-            webView.Source = "http://178.62.226.22:3005/learning";
+            webView.Source = $"{ApiClient.ApiBase}learning";
             Shell.SetNavBarIsVisible(this, false);
         }
     }

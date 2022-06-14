@@ -7,17 +7,28 @@
              BackgroundColor="{StaticResource GreyBackground}">
 
     <StackLayout>
-        <ListView x:Name="CreditsListView" ItemsSource="{Binding RealEstateCredits}" ItemTapped="Handle_ItemTapped" CachingStrategy="RecycleElement">
-        <ListView.ItemTemplate>
+        <CollectionView x:Name="CreditsListView" ItemSizingStrategy="MeasureFirstItem" ItemsSource="{Binding RealEstateCredits}">
+        <CollectionView.ItemTemplate>
           <DataTemplate>
-            <ViewCell>
-              <StackLayout>
-                <Label Text="{Binding BankName}"/>
-                <Label Text="{Binding SimulatorURL}"/>
-              </StackLayout>
-            </ViewCell>
+              <StackLayout Padding="0,8">
+                <Frame
+                    Padding="12"
+                    BackgroundColor="White"
+                    CornerRadius="16"
+                    HasShadow="True"
+                    BorderColor="{StaticResource Primary}">
+                    <StackLayout>
+                        <Label HorizontalOptions="Center" TextColor="{StaticResource Secondary}" Text="{Binding BankName}" />
+                        <Image Source="{Binding Logo}" HeightRequest="48" WidthRequest="48" Aspect="AspectFit" HorizontalOptions="Center"/>
+                        <Button
+                            Text="Deschideti simulatorul de credite"
+                            BindingContext="{Binding SimulatorURL}"
+                            Clicked="Button_Clicked"/>
+                    </StackLayout>
+                </Frame>
+               </StackLayout>
           </DataTemplate>
-        </ListView.ItemTemplate>
-        </ListView>
+        </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 </ContentPage>

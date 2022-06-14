@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using FinFriend.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,15 +22,10 @@ namespace FinFriend.Views
             Shell.SetNavBarIsVisible(this, true);
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+            var url = ((sender as View)?.BindingContext) as string;
+            await Browser.OpenAsync(new Uri(url), BrowserLaunchMode.SystemPreferred);
         }
     }
 }

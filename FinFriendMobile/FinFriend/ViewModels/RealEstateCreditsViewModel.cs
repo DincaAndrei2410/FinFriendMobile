@@ -25,7 +25,7 @@ namespace FinFriend.ViewModels
 
         private async Task LoadData()
         {
-            _realEstateCredits = await _realEstateCreditService.GetItemsAsync();
+            RealEstateCredits = await _realEstateCreditService.GetItemsAsync();
         }
     }
 }

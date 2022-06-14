@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinFriend.Views.LoginPage"
+    xmlns:controlers="clr-namespace:FinFriend.Converters"
+    Padding="16, 60, 16, 32"
+    BackgroundColor = "DarkGray">
+
+    <ContentPage.Resources>
+        <controlers:MultiTriggerConverter x:Key="dataHasBeenEntered" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+
+        <ScrollView>
+            <StackLayout Margin="24" Spacing="16">
+                <Label Text="Introduceti numele de utilizator"
+                       FontSize="28"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Entry
+                    x:Name="UsernameEntry"
+                    Keyboard="Plain"
+                    Text=""
+                    PlaceholderColor="{StaticResource Primary}"
+                    TextColor="{StaticResource Primary}"
+                    Placeholder="Nume de utilizator"/>
+                <Label Text="Introduceti parola"
+                       FontSize="28"
+                       Margin="0,32,0,0"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand" />
+                <Entry
+                    x:Name="PasswordEntry"
+                    Text=""
+                    PlaceholderColor="{StaticResource Primary}"
+                    TextColor="{StaticResource Primary}"
+                    Keyboard="Plain"
+                    Placeholder="Parola" />
+                <Button
+                    IsEnabled="False"
+                    Clicked="ButtonOnClicked"
+                    HorizontalOptions="Center"
+                    Margin="0,16,0,0"
+                    Text="Conectare"
+                    Padding="20,0,20,0">
+                    <Button.Triggers>
+                         <MultiTrigger TargetType="Button">
+                            <MultiTrigger.Conditions>
+                                  <BindingCondition
+                                    Binding="{Binding Source={x:Reference UsernameEntry},
+                                          Path=Text.Length,
+                                          Converter={StaticResource dataHasBeenEntered}}"
+                                    Value="true"/>
+                                <BindingCondition
+                                     Binding="{Binding Source={x:Reference PasswordEntry},
+                                          Path=Text.Length,
+                                          Converter={StaticResource dataHasBeenEntered}}"
+                                    Value="true"/>
+                              
+                            </MultiTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True" />
+                        </MultiTrigger>
+                    </Button.Triggers>
+                </Button>
+
+            </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

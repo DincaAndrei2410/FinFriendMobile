@@ -1,7 +1,9 @@
 ﻿using System;
+using Models.Models;
+
 namespace FinFriend.Models
 {
-    public class RealEstateCredit
+    public class RealEstateCredit : EntityBase
     {
         public string BankName { get; set; }
         public string Logo { get; set; }
