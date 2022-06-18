@@ -16,6 +16,11 @@
 
         <ScrollView>
             <StackLayout Margin="24" Spacing="16">
+                <Label Text="Loginul trece indiferent ce date introduceti care contin mai mult de 3 caractere"
+                       FontSize="14"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand"/>
                 <Label Text="Introduceti numele de utilizator"
                        FontSize="28"
                        TextColor="{StaticResource Primary}"
