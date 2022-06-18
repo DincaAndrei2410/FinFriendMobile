@@ -8,7 +8,7 @@ namespace API
     {
         public static ApiClient Instance = new ApiClient();
 
-        public const string ApiBase = "http://192.168.1.130:3005/";
+        public const string ApiBase = "https://fin-friend-api.herokuapp.com/";
         private static readonly HttpClient _httpClient = new HttpClient();
 
         public async Task<T> GetAsync<T>(string endpointUrl)
